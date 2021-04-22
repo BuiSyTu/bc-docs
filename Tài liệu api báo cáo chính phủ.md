@@ -228,3 +228,36 @@ Trong đó:
             "name": "Tên chỉ tiêu"
         }
 ```
+
+### [GET]: `/vti_bin/TD.BC.DW/DWService.svc/indicators/hasdata`
+
+**Mô tả**: Lấy danh sách các chỉ tiêu có dữ liệu
+
+**Danh sách tham số**:
+- `officeCode`: Mã đơn vị
+- `dataTypeId`: Id loại dữ liệu
+- `periodId`: Id kỳ nhập dữ liệu
+- `datayear`: năm nhập liệu
+
+**Output**
+```json
+    {
+        "data": List<IndicatorInformationShortCut> // object thông tin chi tiêu, mô tả ở bên dưới
+        "error": {
+            "code": 200,
+            "internalMessage": "",
+            "userMessage": ""
+        },
+        "total": 2875
+    }
+```
+
+Trong đó:
+
+```json
+    IndicatorInformationShortCut: 
+        {
+            "code": "Mã chỉ tiêu",
+            "name": "Tên chỉ tiêu"
+        }
+```
