@@ -154,7 +154,7 @@ Gọi: `/_vti_bin/TD.BC.DW/DWService.svc/indicators?officeCode=000.00.00.H50&ind
     "officeCode": "mã đơn vị", // string
     "indicatorCodes": ["abc", "def"], // danh sách các mã chỉ tiêu, List<string>
     "dataTypeId": 1, // loại số liệu, int
-    "periodTypeId": 1, // Kỳ nhập liệu, int
+    "periodId": 1, // Kỳ nhập liệu, int
     "dataYear": 2019 // Năm nhập liệu
 }
 ```
@@ -180,7 +180,7 @@ Gọi: `/_vti_bin/TD.BC.DW/DWService.svc/indicators?officeCode=000.00.00.H50&ind
 **Output**:
 ```json
     {
-        "data": List<Office> // object giá trị chi tiêu, mô tả ở bên dưới
+        "data": List<Office> // object thông tin đơn vị, mô tả ở bên dưới
         "error": {
             "code": 200,
             "internalMessage": "",
@@ -197,5 +197,34 @@ Trong đó:
         {
             "Code": "Mã đơn vị",
             "Name": "Tên đơn vị"
+        }
+```
+
+### [Get]: `/vti_bin/TD.BC.DW/DWService.svc/indicators/office/hasdata/{officeCode}`
+
+**Mô tả**: Lấy tất cả những chỉ tiêu đơn vị có dữ liệu
+
+**Output**:
+```json
+    {
+        "data": List<IndicatorInformationShortCut> // object thông tin chi tiêu, mô tả ở bên dưới
+        "error": {
+            "code": 200,
+            "internalMessage": "",
+            "userMessage": ""
+        },
+        "total": 2875
+    }
+```
+
+<div style="page-break-after: always"></div>
+
+Trong đó:
+
+```json
+    IndicatorInformationShortCut: 
+        {
+            "code": "Mã chỉ tiêu",
+            "name": "Tên chỉ tiêu"
         }
 ```
