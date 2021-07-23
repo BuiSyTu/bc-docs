@@ -47,7 +47,7 @@
 
 <div style="page-break-after: always"></div>
 
-###[GET]: `/_vti_bin/TD.BC.DW/DWService.svc/indicators/BCCP`
+### [GET]: `/_vti_bin/TD.BC.DW/DWService.svc/indicators/BCCP`
 
 **Mô tả**: Lấy danh sách chỉ tiêu báo cáo chính phủ
 
@@ -171,6 +171,19 @@ Gọi: `/_vti_bin/TD.BC.DW/DWService.svc/indicators?officeCode=000.00.00.H50&ind
     }
 ```
 
+Trong đó:
+
+```json
+    IndicatorValue: 
+        {
+            "indicatorCode": "Mã chỉ tiêu",
+            "unit": "Đơn vị tính",
+            "value": "Giá trị"
+        }
+```
+
+
+
 <div style="page-break-after: always"></div>
 
 ### [GET]: `/vti_bin/TD.BC.DW/DWService.svc/offices`
@@ -200,6 +213,8 @@ Trong đó:
         }
 ```
 
+<div style="page-break-after: always"></div>
+
 ### [Get]: `/vti_bin/TD.BC.DW/DWService.svc/indicators/office/hasdata/{officeCode}`
 
 **Mô tả**: Lấy tất cả những chỉ tiêu đơn vị có dữ liệu
@@ -217,8 +232,6 @@ Trong đó:
     }
 ```
 
-<div style="page-break-after: always"></div>
-
 Trong đó:
 
 ```json
@@ -229,9 +242,11 @@ Trong đó:
         }
 ```
 
+<div style="page-break-after: always"></div>
+
 ### [GET]: `/vti_bin/TD.BC.DW/DWService.svc/indicators/hasdata`
 
-**Mô tả**: Lấy danh sách các chỉ tiêu có dữ liệu
+**Mô tả**: Lấy danh sách các chỉ tiêu có dữ liệu và được lọc theo các tham số dưới đây
 
 **Danh sách tham số**:
 - `officeCode`: Mã đơn vị
@@ -261,3 +276,11 @@ Trong đó:
             "name": "Tên chỉ tiêu"
         }
 ```
+
+**Ví dụ**: Muốn lấy các chỉ tiêu
+- Mã đơn vị là 000.00.00.H50
+- Kỳ nhập liệu là cả năm
+- Năm nhập liệu là 2019
+- Loại dữ liệu bất kỳ (dataTypeId bỏ trống)
+
+Gọi: `/_vti_bin/TD.BC.DW/DWService.svc/indicators/hasdata?officeCode=000.00.00.H50&periodId=20&dataYear=2019`
